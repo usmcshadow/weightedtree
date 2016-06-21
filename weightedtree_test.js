@@ -42,8 +42,8 @@ var theme;
 var data = {};
 
 // stores the currently selected value field
-var valueField = "Federal";
-var valueFields = ["Federal", "State", "Local"];
+var valueField = "Total_Volume";
+var valueFields = ["Total_Volume", "Volume_%", "Tracking_%"];
 
 
 var formatCurrency = function (d) { if (isNaN(d)) d = 0; return "$" + d3.format(",.2f")(d) + " Billion"; };
@@ -133,8 +133,8 @@ function initialize() {
     //Like D3 and jQuery, vizuly uses a function chaining syntax to set component properties
     //Here we set some bases line properties for all three components.
     viz.data(data)                                                      // Expects hierarchical array of objects.
-        .width(600)                                                     // Width of component
-        .height(600)                                                    // Height of component
+        .width(300)                                                     // Width of component
+        .height(300)                                                    // Height of component
         .children(function (d) { return d.values })                     // Denotes the property that holds child object array
         .key(function (d) { return d.id })                              // Unique key
         .value(function (d) {
