@@ -53,45 +53,32 @@
 
 <body>
 
-<div id='cssmenu'>
-    <ul class="main-menu">
-        <li class='active'>
-            <a><span>Display</span><br><span class="setting"></span></a>
-            <ul class="options" callback="changeSize">
-                <li id="currentDisplay" class="selected"><a></a></li>
-                <li item_value="1000,1000"><a>1000px - 1000px</a></li>
-                <li item_value="800,600"><a>800px - 600px</a></li>
-                <li item_value="375,667"><a>375px - 667px</a></li>
-                <li item_value="320,568"><a>320px - 568px</a></li>
-            </ul>
-        </li>
-        <li class='active'><a><span>Theme </span><br><span class="setting"></span></a>
-            <ul class="options" callback="changeSkin">
-                <li item_value="None"><a>None</a></li>
-                <li item_value="Axiis" class="selected"><a>Axiis</a></li>
-            </ul>
-        </li>
-        <li class='active'><a><span class="label">Data </span><br><span class="setting"></span></a>
-          <ul class="options" callback="changeData">
-                <li item_value="0" class="selected"><a>Federal</a></li>
-                <li item_value="1"><a>State</a></li>
-                <li item_value="2"><a>Local</a></li>
-            </ul>
-        </li>
-    </ul>
-</div>
+
 
 <!-- Our main content container-->
 <div class="container" style="width:100%">
     <div id="viz_container" class="z-depth-3">
     </div>
     <div style="margin-left:0px; height:0px; width:90%; margin:0px auto; margin-top:20px; font-family:Raleway; font-size:14px;">
-        When politicians talk about “spending” have you ever wanted to know where your tax dollars actually go? This visualization shows you how congress allocates expenditures across three government levels (Federal, State, and Local.) The thicker the line, the more that is being spent.
+         The thicker the line, the more the Volume %.
     </div>
 </div>
+<div class="col-sm-12" id="googleMap" >
+</div>
+		
+<script src="http://maps.googleapis.com/maps/api/js"></script>
 
-
-
+<script>
+	function initialize() {
+	  var mapProp = {
+		center:new google.maps.LatLng(51.508742,-0.120850),
+		zoom:5,
+		mapTypeId:google.maps.MapTypeId.ROADMAP
+	  };
+	  var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+	}
+	google.maps.event.addDomListener(window, 'load', initialize);
+	</script>
 
 <script>
     //Once the document is ready we set javascript and page settings
